@@ -42,4 +42,5 @@ jobs:
       - name: Push changes to work2
         run: |
           cd work2
-          git push https://github.com/ptmnational/work2.git HEAD:refs/heads/main
+          git push https://x-access-token:${{ secrets.WORKFL_TOK }}@github.com/ptmnational/work2.git HEAD:refs/heads/main
+          
