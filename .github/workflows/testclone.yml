@@ -16,7 +16,9 @@ jobs:
       - run: echo " The ${{ github.repository }} repository has been cloned to the runner."
       
       - name: Clone work2 repository
-        run: git clone https://github.com/ptmnational/work2.git
+        run: |
+          git clone https://github.com/ptmnational/work2.git
+          git add.
       - name: Commit changes  
         run: |
           cd work2
