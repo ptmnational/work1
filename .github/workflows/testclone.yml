@@ -18,7 +18,7 @@ jobs:
       - name: Clone work2 repository
         run: |
           git clone https://github.com/ptmnational/work2.git
-          git add.
+          git add test.py
       - name: Commit changes  
         run: |
           cd work2
