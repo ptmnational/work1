@@ -16,9 +16,8 @@ jobs:
       - run: echo " The ${{ github.repository }} repository has been cloned to the runner."
       
       - name: Clone work2 repository
-        run: |
-          git clone https://github.com/ptmnational/work2.git
-          git add test.py
+        run: git clone https://github.com/ptmnational/work2.git
+          
 
       - name: Check for changes in work2
         run: |
