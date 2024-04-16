@@ -35,7 +35,7 @@ jobs:
       - name: Commit changes  
         run: |
           cd work2
-          git add .
+          git add test.py
           git commit -m "Commit from github action"
           
       - name: Push changes to work2
