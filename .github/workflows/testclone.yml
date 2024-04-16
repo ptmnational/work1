@@ -19,6 +19,14 @@ jobs:
         run: |
           git clone https://github.com/ptmnational/work2.git
           git add test.py
+
+      - name: Check for changes in work2
+        run: |
+          cd work2
+          if git diff-index --quiet HEAD --; then
+            echo "No changes to commit in work2"
+            exit 0
+          fi
       - name: Commit changes  
         run: |
           cd work2
