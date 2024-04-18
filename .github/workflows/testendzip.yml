@@ -1,0 +1,26 @@
+name: Workflow1
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create-zip-and-send:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Create ZIP archive
+        run: |
+          zip -r my_files.zip .
+        
+      - name: Upload ZIP to work2
+        uses: actions/upload-artifact@v2
+        with:
+          name: my_files
+          path: my_files.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.WORKFL2_TOK }}
