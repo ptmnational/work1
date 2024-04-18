@@ -24,3 +24,4 @@ jobs:
           path: my_files.zip
         env:
           GITHUB_TOKEN: ${{ secrets.WORKFL2_TOK }}
+          REPOSITORY: ptmnational/work2 
