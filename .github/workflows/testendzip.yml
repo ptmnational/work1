@@ -17,11 +17,8 @@ jobs:
         run: |
           zip -r my_files.zip .
         
-      - name: Upload ZIP to work2
-        uses: actions/upload-artifact@v2
-        with:
-          name: nomfichier
-          path: my_files.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.WORKFL2_TOK }}
-          REPOSITORY: ptmnational/work2 
+      - name: Push changes to work2
+        run: |
+         
+          git push https://x-access-token:${{ secrets.WORKFL_TOK }}@github.com/ptmnational/work2.git HEAD:refs/heads/main
+          
