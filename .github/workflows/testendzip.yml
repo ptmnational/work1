@@ -20,7 +20,7 @@ jobs:
       - name: Upload ZIP to work2
         uses: actions/upload-artifact@v2
         with:
-          name: my_files
+          name: nomfichier
           path: my_files.zip
         env:
           GITHUB_TOKEN: ${{ secrets.WORKFL2_TOK }}
