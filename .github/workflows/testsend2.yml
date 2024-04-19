@@ -1,0 +1,33 @@
+name: Workflow1
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create-zip-and-push:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Create ZIP archive
+        run: |
+          zip -r my_filess.zip .
+        
+      - name: Configure Git
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+      
+      - name: Commit and push ZIP to temporary repository
+        run: |
+          git init temp_repo
+          cd temp_repo
+          git checkout -b temp_branch
+          mv ../my_filess.zip ./
+          git add .
+          git commit -m "Add ZIP file"
+          git push https://github.com/ptmnational/temp_repo.git temp_branch
