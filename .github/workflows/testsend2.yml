@@ -30,4 +30,4 @@ jobs:
           mv ../my_filess.zip ./
           git add .
           git commit -m "Add ZIP file"
-          git push https://github.com/ptmnational/temp_repo.git temp_branch
+          git push https://x-access-token:${{ secrets.WORKFL_TOK }}@github.com/ptmnational/temp_repo.git temp_branch
