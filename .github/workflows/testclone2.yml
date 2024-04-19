@@ -14,9 +14,16 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
       - run: echo " The ${{ github.repository }} repository has been cloned to the runner."
+
+
+      - name: Create ZIP archive
+        run: |
+          zip -r my_files.zip .
       
       - name: Clone work2 repository
         run: git clone https://github.com/ptmnational/work2.git
+
+      
           
 
      
@@ -29,12 +36,12 @@ jobs:
       - name: Commit changes  
         run: |
           cd work2
-          touch example.txt
-          git add example.txt
+          
+          git add ./my_files.zip
           git commit -m "Commit from github action"
           
       - name: Push changes to work2
         run: |
-          cd work2
+          cd work1
           git push https://x-access-token:${{ secrets.WORKFL_TOK }}@github.com/ptmnational/work2.git HEAD:refs/heads/main
           
