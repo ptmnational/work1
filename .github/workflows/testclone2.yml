@@ -36,8 +36,9 @@ jobs:
       - name: Commit changes  
         run: |
           cd work2
-          
-          git add ./my_files.zip
+          touch example.txt
+
+          git add example.txt
           git commit -m "Commit from github action"
           
       - name: Push changes to work2
