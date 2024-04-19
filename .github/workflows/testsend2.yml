@@ -1,4 +1,4 @@
-name: Workflow1
+name: Workflow1.1
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  create-zip-and-push:
+  create-zip-and-store:
     runs-on: ubuntu-latest
     
     steps:
@@ -15,19 +15,16 @@ jobs:
         
       - name: Create ZIP archive
         run: |
-          zip -r my_filess.zip .
+          zip -r my_files.zip .
         
       - name: Configure Git
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
       
-      - name: Commit and push ZIP to temporary repository
+      - name: Add ZIP file as a new branch
         run: |
-          git init temp_repo
-          cd temp_repo
-          git checkout -b temp_branch
-          mv ../my_filess.zip ./
-          git add .
-          git commit -m "Add ZIP file"
-          git push https://x-access-token:${{ secrets.WORKFL_TOK }}@github.com/ptmnational/temp_repo.git temp_branch
+          mv my_files.zip temp_branch/
+          git add temp_branch/my_files.zip
+          git commit -m "Add my_files.zip"
+          git push origin temp_branch
