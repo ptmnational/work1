@@ -30,6 +30,7 @@ jobs:
         run: |
           cd work2
           touch example.txt
+          echo "Hello, world!" > example.txt
           git add example.txt
           git commit -m "Commit from github action"
           
