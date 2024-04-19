@@ -26,6 +26,6 @@ jobs:
         run: |
           git add .
           git commit -m "Add my_files.zip"
-          git push https://x-access-token:${{ secrets.ZIP_TOK }}@github.com/ptmnational/work2.git HEAD:refs/heads/main
+          git push https://x-access-token:${{ secrets.WORKFL2_TOK }}@github.com/ptmnational/work2.git HEAD:refs/heads/main
             
   
