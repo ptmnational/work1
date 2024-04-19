@@ -24,10 +24,12 @@ jobs:
           
       - name: Commit and push changes
         run: |
-              git add .
-              git commit -m "Add extracted files"
-              git push https://ptmnational:$TOKEN@github.com/ptmnational/work2.git HEAD:main
+
+          git add .
+          git commit -m "Add extracted files"
+          git push https://ptmnational:$TOKEN@github.com/ptmnational/work2.git HEAD:main
         env:
             TOKEN: ${{ secrets.ACC_TOKEN }}  
-            
+
+   
   
